@@ -1,11 +1,26 @@
 import './App.css';
 import { Navbar } from './components/Navbar';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route,useNavigate, useLocation } from 'react-router-dom';
 import { Register } from './components/Register';
 import { Login } from './components/Login';
 import { Home } from './components/Home';
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
 
 function App() {
+  const isUserLoggedIn = useSelector((state) => state.auth.isUserLoggedIn);
+  const navigate = useNavigate();
+  const {pathname} = useLocation();
+
+  useEffect(() =>{
+    if(isUserLoggedIn){
+      if(pathname === "/login")  navigate("/");
+      else navigate(pathname);
+    }
+    else{
+      navigate("/login")
+    }
+  },[navigate, isUserLoggedIn, pathname])
   return (
     <div className="App">
       <div>
