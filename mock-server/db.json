@@ -1,0 +1,22 @@
+{
+  "todos": [
+    {
+      "formData": {
+        "department": "Personal"
+      },
+      "id": 1
+    },
+    {
+      "formData": {
+        "tags": "Personal"
+      },
+      "id": 2
+    },
+    {
+      "formData": {
+        "category": "In-Progess"
+      },
+      "id": 3
+    }
+  ]
+}

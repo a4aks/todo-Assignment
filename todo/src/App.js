@@ -6,6 +6,7 @@ import { Login } from './components/Login';
 import { Home } from './components/Home';
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import { Todos } from './components/Todos';
 
 function App() {
   const isUserLoggedIn = useSelector((state) => state.auth.isUserLoggedIn);
@@ -31,6 +32,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
+        <Route path="todo" element = {<Todos />}/>
       </Routes>
       </div>
     </div>
