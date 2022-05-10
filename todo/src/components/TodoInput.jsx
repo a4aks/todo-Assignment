@@ -12,13 +12,13 @@ export const TodoInput = () => {
   });
 
   const handleChange = (e) => {
-    //   console.log(e.target.id);
-    //   console.log(e.target.value);
+      console.log(e.target.id);
+      console.log(e.target.value);
     const { id, value, checked, type } = e.target;
-    // console.log(id, value);
-    setFormData({
-      [id]: type === "checkbox" ? checked : value,
-    });
+    // // console.log(id, value);
+    // setFormData({
+    //   [id]: type === "checkbox" ? checked : value,
+    // });
   };
   const dispatch = useDispatch();
 
@@ -72,17 +72,5 @@ export const TodoInput = () => {
     <br />
     <input type="submit" value="Submit" />
   </form>
-    // <div>
-    //   <h3>ADD TODO</h3>
-    //   <input
-    //     type="text"
-    //     value={title}
-    //     onChange={(e) => setTitle(e.currentTarget.value)}
-    //   />
-    //   <button onClick={() =>{
-    //       dispatch(addTodo(title));
-    //       setTitle("");
-    //   }}>ADD</button>
-    // </div>
   );
 };
