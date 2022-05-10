@@ -1,10 +1,12 @@
 .App {
   text-align: center;
+  display:grid;
+  grid-template-columns: 300px auto;
+  height: 100vh;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App > div{
+  border:1px solid red;
 }
 
 @media (prefers-reduced-motion: no-preference) {
