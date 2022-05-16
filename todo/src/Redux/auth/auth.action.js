@@ -10,9 +10,9 @@ export const loginSuccess = (payload) =>({
     payload,
 })
 
-export const loginError = (error) =>({
+export const loginError = (payload) =>({
     type:USER_LOGIN_ERROR,
-    payload:error,
+    payload
 })
 
 export const logout = () =>({

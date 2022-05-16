@@ -4,6 +4,6 @@ export const initialState = {
         // token:getValue("token"),
 
         // isLoading:false,
-        error:true,
+        data:{}
 };
 

@@ -15,10 +15,11 @@ export const TodoInput = () => {
       console.log(e.target.id);
       console.log(e.target.value);
     const { id, value, checked, type } = e.target;
-    // // console.log(id, value);
-    // setFormData({
-    //   [id]: type === "checkbox" ? checked : value,
-    // });
+    console.log(id, value);
+    setFormData({
+      ...formData,
+      [id]: type === "checkbox" ? checked : value,
+    });
   };
   const dispatch = useDispatch();
 

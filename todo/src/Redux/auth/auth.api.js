@@ -7,11 +7,11 @@ export const login = (params) => (dispatch) => {
     axios
     .post("https://masai-api-mocker.herokuapp.com/auth/login", params)
     .then((r) =>{
-        console.log(r.data);
+        console.log("r.message", r.message);
         dispatch(loginSuccess(r.data))
     })
     .catch((error) =>{
-        dispatch(loginError(error))
-        console.log(error);
+        console.log(error.message);
+        dispatch(loginError(error.message))
     });
 }; 

@@ -20,6 +20,7 @@ function App() {
     }
     else{
       navigate("/login")
+      
     }
   },[navigate, isUserLoggedIn, pathname])
   return (

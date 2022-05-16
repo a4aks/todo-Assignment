@@ -5,8 +5,10 @@ import { registration } from "../Redux/register/register.api";
 
 export const Register = () => {
 
-  const registerState = useSelector((state) => state.register);
-  const { error } = registerState;
+  const data = useSelector((state) => state.register.data);
+  // const { error } = registerState;
+
+  const[user,setUser] = useState("")
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -31,9 +33,11 @@ export const Register = () => {
     e.preventDefault();
     // console.log(formData);
     dispatch(registration(formData))
-    console.log(error);
-    if(!error){
+    console.log(data);
+    if(data.error=== false){
           navigate('/login')
+    }else{
+       setUser(data.message)
     }
   }
 
@@ -97,6 +101,7 @@ export const Register = () => {
         <br />
         <input type = "submit" value = "submit" />
       </form>
+       <h1>{user}</h1>
     </div>
   );
 };

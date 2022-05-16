@@ -17,8 +17,7 @@ const registerReducer = (state = initialState, { type, payload }) => {
     case REGISTRATION_SUCCESS: {    
       return {
         ...state,
-        error:false,
-        ...payload,
+        data:payload
       };
     }
 
