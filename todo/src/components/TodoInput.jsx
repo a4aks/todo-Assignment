@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../Redux/todos/todos.api";
+import { getTodo } from "../Redux/todos/todos.api";
 
 export const TodoInput = () => {
   // const [title, setTitle] = useState("");
@@ -10,6 +11,9 @@ export const TodoInput = () => {
     category: "",
     tags: "",
   });
+  useEffect(() => {
+    dispatch(getTodo)
+  }, [])
 
   const handleChange = (e) => {
       console.log(e.target.id);

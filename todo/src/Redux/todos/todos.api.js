@@ -1,7 +1,7 @@
 import axios from "axios";
 import { v4 } from "uuid";
-import { addTodoRequest, addTodoSuccess, addTodoError } from "./todos.action";
-import {getTodoRequest,getTodoSuccess,getTodoError} from "./todos.action";
+import { addTodoRequest, addTodoSuccess, addTodoError, updateTodoById } from "./todos.action";
+import {getTodoRequest,getTodoSuccess,getTodoError,getTodoById} from "./todos.action";
 
 export const getTodo =() => (dispatch) => {
   dispatch(getTodoRequest());
@@ -33,15 +33,31 @@ export const addTodo = (formData) => (dispatch) => {
     });
 };
 
-export const getTodoById = (id) =>(dispatch) =>{
+export const getTodoId = (id) =>(dispatch) =>{
+  dispatch(getTodoRequest());
   axios
   .get(`https://todo-create-app.herokuapp.com/todos/${id}`)
   .then((r) => {
     console.log("get data"+ r);
-    dispatch(getTodoSuccess(r.data));
+    dispatch(getTodoById(r.data));
   })
   .catch((error) => {
     dispatch(getTodoError(error));
+    console.log(error);
+  });
+}
+
+export const updateTodo = (formData,id) =>(dispatch) =>{
+  axios
+  .put(`https://todo-create-app.herokuapp.com/todos/${id}`, {
+    formData: formData
+  })
+  .then((r) => {
+    console.log(r.data);
+    dispatch(updateTodoById(r.data));
+  })
+  .catch((error) => {
+    dispatch(addTodoError(error));
     console.log(error);
   });
 }

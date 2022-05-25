@@ -8,3 +8,5 @@ export const GET_TODO_ERROR = "GET_TODO_ERROR";
 
 export const GET_TODO_ID = "GET_TODO_ID"
 
+export const UPDATE_TODO = "UPDATE_TODO"
+

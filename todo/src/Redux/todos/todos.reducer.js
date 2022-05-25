@@ -6,22 +6,25 @@ import {
   GET_TODO_REQUEST,
   GET_TODO_SUCCESS,
   GET_TODO_ERROR,
+  GET_TODO_ID,
+  UPDATE_TODO,
 } from "./todos.actionType";
 
 const todosReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    // case GET_TODO_REQUEST: {
-    //   return { ...state, isLoading: true, error: false };
-    // }
+    case GET_TODO_REQUEST: {
+      return { ...state, isLoading: true, error: false };
+    }
+
     case GET_TODO_SUCCESS: {
       return {
         ...state,
        data: payload
       };
     }
-    // case GET_TODO_ERROR: {
-    //   return { ...state, isLoading: false, error: true };
-    // }
+    case GET_TODO_ERROR: {
+      return { ...state, isLoading: false, error: true };
+    }
     // todos
     // case ADD_TODO_REQUEST: {
     //   return { ...state, isLoading: true, error: false };
@@ -35,6 +38,19 @@ const todosReducer = (state = initialState, { type, payload }) => {
     // case ADD_TODO_ERROR: {
     //   return { ...state, isLoading: false, error: true };
     // }
+
+    case GET_TODO_ID :{
+      return {
+        ...state,
+        todo:payload
+      }
+    }
+    case UPDATE_TODO :{
+       return{
+         ...state,
+         data: payload
+       }
+    }
     default:
       return state;
   }

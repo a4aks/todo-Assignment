@@ -5,6 +5,8 @@ import {
   GET_TODO_REQUEST,
   GET_TODO_SUCCESS,
   GET_TODO_ERROR,
+  GET_TODO_ID,
+  UPDATE_TODO,
 } from "./todos.actionType";
 import { v4 } from "uuid";
 
@@ -34,6 +36,16 @@ export const addTodoError = (error) => ({
   type: ADD_TODO_ERROR,
   payload: error,
 });
+
+export const getTodoById = (payload) =>({
+  type: GET_TODO_ID,
+  payload
+})
+
+export const updateTodoById = (payload) =>({
+  type:UPDATE_TODO,
+  payload
+})
 
 // export const addTodo =  (value) =>( {
 //     type:ADD_TODO,
