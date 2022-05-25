@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,NavLink } from "react-router-dom";
 import { registration } from "../Redux/register/register.api";
 
 export const Register = () => {
 
-  const data = useSelector((state) => state.register.data);
-  // const { error } = registerState;
+  const {error,message} = useSelector((state) => state.register);
+  console.log(error)
+  console.log(message)
 
+ 
   const[user,setUser] = useState("")
 
   const dispatch = useDispatch();
@@ -31,22 +33,15 @@ export const Register = () => {
   const {name,email,password,username,mobile,description} = formData;
   const handleSubmit = (e) =>{
     e.preventDefault();
-    // console.log(formData);
     dispatch(registration(formData))
-    console.log(data);
-    if(data.error=== false){
-          navigate('/login')
+    if(error){
+     navigate("/login")
     }else{
-       setUser(data.message)
+     setUser(message)
     }
   }
 
-  // useEffect(() =>{
-  //   if(!error){
-  //     navigate('/login')
-  //   }
-
-  // }, [registerState])
+ 
   return (
     <div>
       <form onSubmit={handleSubmit}>
@@ -101,7 +96,7 @@ export const Register = () => {
         <br />
         <input type = "submit" value = "submit" />
       </form>
-       <h1>{user}</h1>
+      {/* {error ? navigate("/login") :{message}} */}
     </div>
   );
 };

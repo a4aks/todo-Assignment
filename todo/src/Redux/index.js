@@ -1,8 +1,8 @@
 import { createStore,applyMiddleware, compose } from "redux";
 import reducer from "./reducer";
-// import thunk from "redux-thunk";
+import thunk from "redux-thunk";
 
-const combineCompose = window.__REDUX_DEVTOOLS_EXTENSION_ || compose;
+const createComposer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // const thunk = store => next => action => {
 //   if(typeof action === 'function'){
@@ -14,16 +14,16 @@ const combineCompose = window.__REDUX_DEVTOOLS_EXTENSION_ || compose;
 //   }
 // }
 
-const thunk = (store) => (next) =>(action) =>{
+// const thunk = (store) => (next) =>(action) =>{
 
-    if(typeof action === "function"){
-        console.log("this is a function")
-        return action(store.dispatch, store.getState)
+//     if(typeof action === "function"){
+//         console.log("this is a function")
+//         return action(store.dispatch, store.getState)
 
-    }else{
-        console.log("this is a object")
-        return next(action);
-    }
+//     }else{
+//         console.log("this is a object")
+//         return next(action);
+//     }
    
-}
-export const store = createStore(reducer, combineCompose(applyMiddleware(thunk)));
+// }
+export const store = createStore(reducer, createComposer(applyMiddleware(thunk)));

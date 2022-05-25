@@ -1,43 +1,5 @@
 {
   "todos": [
-    {
-      "formData": {
-        "department": "Personal"
-      },
-      "id": 1
-    },
-    {
-      "formData": {
-        "tags": "Personal"
-      },
-      "id": 2
-    },
-    {
-      "formData": {
-        "category": "In-Progess"
-      },
-      "id": 3
-    },
-    {
-      "formData": {
-        "category": "In-Progess"
-      },
-      "id": 4
-    },
-    {
-      "formData": {
-        "category": "In-Progess"
-      },
-      "id": 5
-    },
-    {
-      "formData": {
-        "title": "React",
-        "description": "basics",
-        "category": "todo",
-        "tags": "Personal"
-      },
-      "id": 6
-    }
+   
   ]
 }

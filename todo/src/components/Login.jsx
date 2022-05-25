@@ -14,17 +14,17 @@ export const Login = () => {
   const [username, setusername] = useState("");
   const [password, setpassword] = useState("");
 
-  const[status,setlogin] = useState(false)
+  const[status,setloginstatus] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(login)
     dispatch(login({username,password}))
     if(error){
-      console.log("Register YourSelf")
-      setlogin(error)
-    }else{
+      setloginstatus(error)
       navigate("/register")
+    }else{
+      navigate("/") 
     }
   };
   return (
@@ -47,6 +47,7 @@ export const Login = () => {
         <input type = "submit" value = "Login" />
         </div>
       </form>
+      {status ? (<h1>Regster Yourself.</h1> ):""}   <button onClick={() => navigate("/register")}>Register</button>
     </div>
   );
 };

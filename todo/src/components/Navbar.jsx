@@ -20,8 +20,9 @@ export const Navbar = () => {
     >
       <NavLink to="/">Home</NavLink>
       <NavLink to="/register">Register</NavLink>
-      <NavLink to="/login">Login</NavLink>
       <NavLink to = "/todo">Create Todo</NavLink>
+      <NavLink to="/login">Login</NavLink>
+
 
       {isUserLoggedIn && (
         <button onClick={() => dispatch(logout())}>Logout</button>

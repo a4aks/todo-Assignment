@@ -7,6 +7,7 @@ import { Home } from './components/Home';
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import { Todos } from './components/Todos';
+import { EditPage } from './components/EditPage';
 
 function App() {
   const isUserLoggedIn = useSelector((state) => state.auth.isUserLoggedIn);
@@ -18,9 +19,9 @@ function App() {
       if(pathname === "/login")  navigate("/");
       else navigate(pathname);
     }
+    else if(pathname === "/register") navigate("/login")
     else{
       navigate("/login")
-      
     }
   },[navigate, isUserLoggedIn, pathname])
   return (
@@ -34,6 +35,7 @@ function App() {
         <Route path="register" element={<Register />} />
         <Route path="login" element={<Login />} />
         <Route path="todo" element = {<Todos />}/>
+        <Route path = "todo/:id" element = {<EditPage />}/>
       </Routes>
       </div>
     </div>

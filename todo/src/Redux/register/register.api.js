@@ -14,7 +14,6 @@ export const registration = (params) => (dispatch) => {
         console.log();
     })
     .catch((error) =>{
-        // dispatch(loginError(error))
         console.log(error);
     });
 }; 

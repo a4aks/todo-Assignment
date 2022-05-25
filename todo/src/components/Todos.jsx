@@ -17,13 +17,23 @@ export const Todos = () => {
     <div>
       <h1>Todos</h1>
       <TodoInput />
+      <table>
+              <thead>
+                <th>S.No.</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Tags</th>
+                <th>Actions</th>
+              </thead>
       {todos.map((todo) => {
         return (
-          <div key={todo.id}>
+          <tbody key={todo.id}>
             <Todo todo ={todo}/>
-          </div>
+          </tbody>
         );
       })}
+       </table>
     </div>
   );
 };

@@ -5,19 +5,12 @@ import { initialState } from "./register.constants";
 
 const registerReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-    // Auth
-    // case USER_LOGIN_REQUEST: {
-    //   return {
-    //     ...state,
-    //     isLoading:true,
-    //     error:false,
-    //   };
-    // }
-
+    
     case REGISTRATION_SUCCESS: {    
       return {
         ...state,
-        data:payload
+        error:payload.error,
+        message:payload.message
       };
     }
 
