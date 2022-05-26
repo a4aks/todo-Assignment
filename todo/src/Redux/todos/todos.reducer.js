@@ -8,6 +8,9 @@ import {
   GET_TODO_ERROR,
   GET_TODO_ID,
   UPDATE_TODO,
+  GET_TODO_TODO,
+  GET_TODO_PROGRESS,
+  GET_TODO_DONE,
 } from "./todos.actionType";
 
 const todosReducer = (state = initialState, { type, payload }) => {
@@ -50,6 +53,26 @@ const todosReducer = (state = initialState, { type, payload }) => {
          ...state,
          data: payload
        }
+    }
+
+    case GET_TODO_TODO :{
+      return{
+        ...state,
+        todos:payload
+      }
+    }
+
+    case GET_TODO_PROGRESS :{
+      return{
+        ...state,
+        progress:payload
+      }
+    }
+    case GET_TODO_DONE :{
+      return{
+        ...state,
+        done:payload
+      }
     }
     default:
       return state;

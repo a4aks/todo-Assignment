@@ -1,11 +1,17 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import {logout} from "../Redux/auth/auth.action";
 
 export const Navbar = () => {
   const isUserLoggedIn = useSelector((state) => state.auth.isUserLoggedIn);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const log = () =>{
+    dispatch(logout())
+    navigate("/")
+  }
 
   return (
     <div
@@ -18,14 +24,15 @@ export const Navbar = () => {
         border: "1px solid black"
       }}
     >
-      <NavLink to="/">Home</NavLink>
+      <NavLink to="/">Login</NavLink>
       <NavLink to="/register">Register</NavLink>
+      <NavLink to = "/summary">Summary</NavLink>
       <NavLink to = "/todo">Create Todo</NavLink>
-      <NavLink to="/login">Login</NavLink>
+      <NavLink to="/home">Home</NavLink>
 
 
       {isUserLoggedIn && (
-        <button onClick={() => dispatch(logout())}>Logout</button>
+        <button onClick={() => log()}>Logout</button>
       )}
     </div>
   );

@@ -34,8 +34,8 @@ export const Register = () => {
   const handleSubmit = (e) =>{
     e.preventDefault();
     dispatch(registration(formData))
-    if(error){
-     navigate("/login")
+    if(!error){
+     navigate("/")
     }else{
      setUser(message)
     }

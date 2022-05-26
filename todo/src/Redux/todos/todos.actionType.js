@@ -10,3 +10,9 @@ export const GET_TODO_ID = "GET_TODO_ID"
 
 export const UPDATE_TODO = "UPDATE_TODO"
 
+export const GET_TODO_TODO = "GET_TODO_TODO"
+
+export const GET_TODO_PROGRESS = "GET_TODO_PROGRESS"
+
+export const GET_TODO_DONE = "GET_TODO_DONE"
+
