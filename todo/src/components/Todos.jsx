@@ -12,7 +12,9 @@ export const Todos = () => {
   const todos = useSelector((state) => state.todos.data);
   const isLoading = useSelector((state) => state.todos.isLoading)
   const dispatch = useDispatch();
+ 
 
+  
   const [isEditModeOn, setisEditModeOn] = useState(false);
   const navigate = useNavigate()
 
@@ -21,8 +23,8 @@ export const Todos = () => {
   }, [])
 
   const onEditItem  = (todo) =>{
-    navigate(`/todo/${todo.id}`)
     dispatch(getTodoId(todo.id))
+    navigate(`/todo/${todo.id}`)
     // setisEditModeOn(!isEditModeOn)
   }
 
@@ -38,7 +40,7 @@ export const Todos = () => {
                 <th>Description</th>
                 <th>Category</th>
                 <th>Tags</th>
-                <th>Actions</th>
+                {/* <th>Actions</th> */}
               </thead>
       {todos.map((todo) => {
         return (
@@ -48,9 +50,6 @@ export const Todos = () => {
             <td>{todo.formData.description}</td>
             <td>{todo.formData.category}</td>
             <td>{todo.formData.tags}</td>
-            <td><button onClick={() => onEditItem(todo)}>
-              {/* {isEditModeOn ?"Cancle Edit":"Edit"} */}Edit
-            </button></td>
           </tbody>
         );
       })}
